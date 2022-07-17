@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link  rel="stylesheet" type="text/css" href="main.css">
+
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+	<title>stone paper scissors</title>
+	<style> 
+	
+		</style>
+
+</head>
+<body>
+   <h2> STONE PAPER SCISSORS GAME</h1>
+
+   <h3> Make your choose</h3>
+
+   <div class="images">
+   	<div class="computer">
+   	<img src="./stoneComputer.png">
+   	</div>
+
+   	<div class="player">
+   		<img src="./stoneplayer.png">
+   	</div>
+    </div><br>
+	
+    <div class="points">
+	<div class="message">COMPUTER <span class="computerPoints">0 </span>
+| PLAYER <span class="playerpoints">0</span>
+    </div>
+
+    <div class="options">
+    	<button type="button">stone</button>
+    	<button type="button">paper</button>
+    	<button type="button">scissors</button>
+   </div>
+
+    	<script type="text/javascript">
+    		const computer=document.querySelector(".computer img");
+    		const player=document.querySelector(".player img");
+    		const computerPoints=document.querySelector(".computerPoints");
+    		const playerPoints=document.querySelector(".playerpoints");
+    		const options =document.querySelectorAll(".options button");
+                        
+			/*options.forEach((options1)=>{
+				options.addEventListener("click",()=>{
+					player.classList.add(animate__shakeX);
+				}
+				)
+			}
+			)*/
+    		options.forEach((options)=>{
+                         options.addEventListener("click",()=>{
+
+                             player.classList.add("shake")  
+                            
+
+                        	player.src="./"+options.innerHTML+"Player.png";
+
+                        	let choice =["stone","paper","scissors"];
+							let a=Math.floor(Math.random() * 3);
+
+							let com=choice[a];
+							computer.src="./"+com+"Computer.png";
+							
+
+
+                         
+							let cpoints=parseInt(computerPoints.innerHTML);
+							let ppoints=parseInt(playerPoints.innerHTML);
+                                     
+							if(options.innerHTML=== "stone")
+							{
+								if(com==="paper")
+								      computerPoints.innerHTML=cpoints+1;
+
+
+							    else if(com==="scissors")
+								       playerPoints.innerHTML=ppoints+1;
+
+							}
+							else if(options.innerHTML==="paper")
+                                {
+									if(com==="scissors")
+								      computerPoints.innerHTML=cpoints+1;
+
+
+							    else if(com==="stone")
+								       playerPoints.innerHTML=ppoints+1;
+								}
+								else{
+									if(com==="stone")
+								      computerPoints.innerHTML=cpoints+1;
+
+
+							    else if(com==="paper")
+								       playerPoints.innerHTML=ppoints+1;
+								}
+
+                })
+    		})
+
+    	</script>
+</body>
+</html>
